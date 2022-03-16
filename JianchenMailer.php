@@ -28,18 +28,8 @@ class JianchenMailer
         $answer =  rtrim( fgets( STDIN ));
         return $answer;
     }
-	public function cover(){
-		$template[0] .= $this->color("random" , "=======================================================================\r\n");
-        $template[0] .= $this->color("random" , "      _______    || ".$this->color('string' , $this->versi()['name'])." (issue ".$this->versi()['issue'].")\r\n");
-        $template[0] .= $this->color("random" , "     |==   []|   || ".$this->versi()['versi']."\r\n");
-        $template[0] .= $this->color("random" , "     |  ==== |   || www.bmarket.or.id (c) ".date(Y)." ".$this->color("random","emailist").".org\r\n");
-        $template[0] .= $this->color("random" , "     '-------'   || it's full of great features!\r\n");
-        $template[0] .= $this->color("random" , "=======================================================================\r\n");
-        print_r($template[0]);
-        echo "\r\n";
-	}
 	public function required(){
-		echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('bggreen', "Sedang mencari file emailist\r\n"));
+		echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('green', "Sedang mencari file emailist\r\n"));
 		$locdir_list 	= JIANCHEN_PATH.'/Emailist';
 		$list_load 		= scandir($locdir_list);
 		foreach ($list_load as $key => $value) {
@@ -52,7 +42,7 @@ class JianchenMailer
 			echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('bgred', "Tidak ditemukan file emailist di folder Emailist\r\n"));
 			die();
 		}
-		echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('bggreen', "Terdapat ".count($arrayList)." file emailist.")."\r\n\n");
+		echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('green', "Terdapat ".count($arrayList)." file emailist.")."\r\n\n");
 		echo $this->color("green","====================================\r\n");
 		foreach ($arrayList as $key => $value) {
 			echo $this->color("nevy","[Emailist] [$key] ".pathinfo($value)[filename]."\r\n");
