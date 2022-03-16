@@ -20,16 +20,26 @@ class JianchenMailer
 		return array(
 			'name' 		=> 'JIANCHEN GSCLI', 
 			'issue' 	=> '1.1',
+			'code' 	=> 'AZHAR',
 			'codename'  => false,
 		);
 	}
 	public function stuck($msg){
-        echo $this->color("green","[JIANCHEN GSCLI] ").$this->color("purple",$msg);
+        echo $this->color("green","[JC GSCLI] ").$this->color("purple",$msg);
         $answer =  rtrim( fgets( STDIN ));
         return $answer;
     }
 	public function required(){
-		echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('green', "Load Email List !\r\n"));
+        $template[0] .= $this->color("random" , ".------..------. || \r\n");
+        $template[0] .= $this->color("random" , "|J.--. ||C.--. | || ".$this->color('string' , $this->versi()['name'])." (issue ".$this->versi()['issue'].")\r\n");
+        $template[0] .= $this->color("random" , "| :/\: || :/\: | || Code by".$this->versi()['code']."\r\n");
+        $template[0] .= $this->color("random" , "| (__) || :\/: | || ".date(Y)." ".$this->color("random","emailist").".org\r\n");
+        $template[0] .= $this->color("random" , "| '--'J|| '--'C| || it's full of great features!\r\n");
+        $template[0] .= $this->color("random" , "`------'`------' || \r\n");
+		$template[0] .= $this->color("string","[+] =========================================================================================")." [+]\r\n";
+        print_r($template[0]);
+        echo "\r\n";
+		echo $this->color("green","[JC GSCLI] ".$this->color('bggreen', "Sedang mencari file emailist\r\n"));
 		$locdir_list 	= JIANCHEN_PATH.'/Emailist';
 		$list_load 		= scandir($locdir_list);
 		foreach ($list_load as $key => $value) {
@@ -38,11 +48,11 @@ class JianchenMailer
 			}
 		}
 		if(count($arrayList) == 0){
-			echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('red', "Masukan file emailist di folder Emailist\r\n"));
-			echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('red', "Tidak ditemukan file emailist di folder Emailist\r\n"));
+			echo $this->color("green","[JC GSCLI] ".$this->color('bgred', "Masukan file emailist di folder Emailist\r\n"));
+			echo $this->color("green","[JC GSCLI] ".$this->color('bgred', "Tidak ditemukan file emailist di folder Emailist\r\n"));
 			die();
 		}
-		echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('green', "Terdapat ".count($arrayList)." file emailist.")."\r\n\n");
+		echo $this->color("green","[JC GSCLI] ".$this->color('bggreen', "Terdapat ".count($arrayList)." file emailist.")."\r\n\n");
 		echo $this->color("green","====================================\r\n");
 		foreach ($arrayList as $key => $value) {
 			echo $this->color("nevy","[Emailist] [$key] ".pathinfo($value)[filename]."\r\n");
@@ -52,7 +62,7 @@ class JianchenMailer
 		$pil = $this->stuck("Masukan nomor list : ");
 		$fgt = file_get_contents($arrayList[$pil]);
 		if(empty($fgt)){
-			echo $this->color("red","[JIANCHEN GSCLI] Nomor pilihan anda salah!!!\r\n");
+			echo $this->color("red","[JC GSCLI] Nomor pilihan anda salah!!!\r\n");
 			die();
 		}
 		
@@ -62,7 +72,7 @@ class JianchenMailer
             $fgt = explode("\n", $fgt);
         }
 
-		echo $this->color("green","[JIANCHEN GSCLI] Terdapat ".$this->color('red',count($fgt))." emailist.\r\n\n");
+		echo $this->color("green","[JC GSCLI] Terdapat ".$this->color('red',count($fgt))." emailist.\r\n\n");
 		$pil = $this->stuck("Hapus duplikat email ? 0 = Tidak , 1 = YA : ");
 		if($pil == 1){
 			$fgt = array_unique($fgt);
@@ -83,7 +93,7 @@ class JianchenMailer
 				
 				if($respons['json']['result']){
 
-					$message_output .= $this->color('green' , '[JIANCHEN GSCLI]');
+					$message_output .= $this->color('green' , '[JC GSCLI]');
 					$message_output .= '['.$this->color('yellow' , ($respons['line']+1)).'] ';
 					$message_output .= $this->color('nevy' , $this->dot(trim($respons['email'])) )." => ";
 				
@@ -96,7 +106,7 @@ class JianchenMailer
 
 				}else{
 
-					$message_output .= $this->color('green' , '[JIANCHEN GSCLI]');
+					$message_output .= $this->color('green' , '[JC GSCLI]');
 					$message_output .= '['.$this->color('yellow' , ($respons['line']+1)).'] ';
 					$message_output .= $this->color('nevy' , $this->dot(trim($respons['email'])) )." => ";
 					$message_output .=  $this->color('red', 'Send Failed!');
