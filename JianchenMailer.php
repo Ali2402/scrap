@@ -32,7 +32,7 @@ class JianchenMailer
 	public function required(){
         $template[0] .= $this->color("random" , ".------..------. || \r\n");
         $template[0] .= $this->color("random" , "|J.--. ||C.--. | || ".$this->color('string' , $this->versi()['name'])." (issue ".$this->versi()['issue'].")\r\n");
-        $template[0] .= $this->color("random" , "| :/\: || :/\: | || Code by".$this->versi()['code']."\r\n");
+        $template[0] .= $this->color("random" , "| :/\: || :/\: | || Code by ".$this->versi()['code']."\r\n");
         $template[0] .= $this->color("random" , "| (__) || :\/: | || ".date(Y)." ".$this->color("random","emailist").".org\r\n");
         $template[0] .= $this->color("random" , "| '--'J|| '--'C| || it's full of great features!\r\n");
         $template[0] .= $this->color("random" , "`------'`------' || \r\n");
