@@ -29,14 +29,6 @@ class JianchenMailer
         return $answer;
     }
 	public function required(){
-		$template[0] .= $this->color("random" , "=======================================================================\r\n");
-		$template[0] .= $this->color("random" , "      _______    || ".$this->color('string' , $this->versi()['name'])." (issue ".$this->versi()['issue'].")\r\n");
-		$template[0] .= $this->color("random" , "     |==   []|   || ".$this->versi()['versi']."\r\n");
-		$template[0] .= $this->color("random" , "     |  ==== |   || www.bmarket.or.id (c) ".date(Y)." ".$this->color("random","emailist").".org\r\n");
-		$template[0] .= $this->color("random" , "     '-------'   || it's full of great features!\r\n");
-		$template[0] .= $this->color("random" , "=======================================================================\r\n");
-		print_r($template[0]);
-		echo "\r\n";
 		echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('green', "Load Email List !\r\n"));
 		$locdir_list 	= JIANCHEN_PATH.'/Emailist';
 		$list_load 		= scandir($locdir_list);
