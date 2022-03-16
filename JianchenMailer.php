@@ -38,8 +38,8 @@ class JianchenMailer
 			}
 		}
 		if(count($arrayList) == 0){
-			echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('bgred', "Masukan file emailist di folder Emailist\r\n"));
-			echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('bgred', "Tidak ditemukan file emailist di folder Emailist\r\n"));
+			echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('red', "Masukan file emailist di folder Emailist\r\n"));
+			echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('red', "Tidak ditemukan file emailist di folder Emailist\r\n"));
 			die();
 		}
 		echo $this->color("green","[JIANCHEN GSCLI] ".$this->color('green', "Terdapat ".count($arrayList)." file emailist.")."\r\n\n");
